@@ -86,3 +86,11 @@
 {"id": "game_tomori_dryvoice_0190", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策剔除（0188-0192 不明人名簇：あのちゃん/ロア/きちゃん）"}
 {"id": "game_tomori_dryvoice_0191", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策剔除（0188-0192 不明人名簇：あのちゃん/ロア/きちゃん）"}
 {"id": "game_tomori_dryvoice_0192", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策剔除（0188-0192 不明人名簇：あのちゃん/ロア/きちゃん）"}
+{"id": "game_tomori_dryvoice_0652", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策口径（严重乱码：佛学生是小云legs了）"}
+{"id": "game_tomori_dryvoice_0516", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策口径（人名「桥本」指代不明）"}
+{"id": "game_tomori_dryvoice_0518", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策口径（无实义残句「吗……」）"}
+{"id": "game_tomori_dryvoice_0065", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 用户决策口径（无实义应答「不过，嗯。」）"}
+{"id": "game_tomori_dryvoice_0091", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 重对齐剔除（他人台词串入：小灯，到那儿为止）"}
+{"id": "game_tomori_dryvoice_0147", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 重对齐剔除（纯语气词堆叠无实义）"}
+{"id": "game_tomori_dryvoice_0362", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 重对齐剔除（自称矛盾存疑（我、灯，我们俩））"}
+{"id": "game_tomori_dryvoice_0651", "file": "game_tomori_garupa_dryvoice.zh.jsonl", "reason": "R4 重对齐剔除（乱码：大云Ances）"}

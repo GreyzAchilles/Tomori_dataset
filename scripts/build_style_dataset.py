@@ -241,6 +241,14 @@ def pick(pool, seed_key):
     return pool[h % len(pool)]
 
 
+# 重对齐覆盖（2026-10-14：通用桶 instruction 语义对齐，Flash 工作流产出）
+REALIGN = {}
+_realign_path = ROOT / "99_logs" / "dialogue_work" / "realign.json"
+if _realign_path.exists():
+    REALIGN = {r["id"]: r["instruction"] for r in
+               (json.loads(l) for l in _realign_path.read_text(encoding="utf-8").splitlines() if l.strip())}
+
+
 def route(text):
     for name, pats, _ in ROUTES:
         if any(re.search(p, text) for p in pats):
@@ -262,8 +270,9 @@ def main():
             cat = route(r["text"])
             cat_cnt[cat] += 1
             pool = next((t for n, _, t in ROUTES if n == cat), GENERIC)
+            instruction = REALIGN.get(r["id"]) or pick(pool, r["id"])
             samples.append({
-                "instruction": pick(pool, r["id"]),
+                "instruction": instruction,
                 "input": "",
                 "output": r["text"],
                 "source": r["id"],
@@ -308,7 +317,8 @@ def main():
         f"- system：{stat['system卡']} 条带人格卡 / {stat['裸样本']} 条裸样本"
         f"（train 内 {sum('system' in s for s in train)}/{len(train)}，"
         f"val 内 {sum('system' in s for s in val)}/{len(val)}，分层 20%）",
-        f"- instruction：{sum(len(t) for _, _, t in ROUTES)} 个路由模板 + {len(GENERIC)} 个通用模板",
+        f"- instruction：{sum(len(t) for _, _, t in ROUTES)} 个路由模板 + {len(GENERIC)} 个通用模板"
+        + (f"；其中 {len(REALIGN)} 条通用桶 instruction 已由重对齐覆盖（语义对齐，2026-10-14）" if REALIGN else ""),
         "",
         "## 情境路由分布",
         "",
